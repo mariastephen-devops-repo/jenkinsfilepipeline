@@ -1,0 +1,16 @@
+pipeline {
+    agent {label 'Build_Node_1'}
+    stages {
+        stage('Build') {
+            steps {
+                sh 'git clone https://github.com/mariastephen-devops-repo/java-war-repo_jenkins_webhook.git'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'mvn clean install'
+            }
+        }
+    }
+}
